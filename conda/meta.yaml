@@ -1,0 +1,54 @@
+{% set name = "bdsf" %}
+{% set version = "1.9.1" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+    url: https://github.com/lofar-astron/PyBDSF/archive/refs/tags/v1.9.1.tar.gz
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - {{ compiler('fortran') }}
+    - {{ compiler('cxx') }}
+    - {{ compiler('c') }}
+    - {{ cdt('sysroot_linux-64') }}
+    - python
+    - pip
+    - setuptools
+    - pip
+    - numpy
+    - py-boost
+  host:
+    - python
+    - pip
+    - boost
+    - numpy
+    - libgfortran
+  run:
+    - numpy
+    - boost
+    - matplotlib
+    - py-boost
+
+
+test:
+
+about:
+  home: https://github.com/lofar-astron/PyBDSF.git
+  license: GPL
+  license_family: GPL
+  license_file: LICENSE
+  summary: 'Python Blob Detector and Source Finder'
+  description: |
+    Python Blob Detector and Source Finder
+  doc_url: https://github.com/lofar-astron/PyBDSF.git
+  dev_url: https://github.com/lofar-astron/PyBDSF.git
+
+extra:
+  recipe-maintainers:
+    - Christoph Vögele
